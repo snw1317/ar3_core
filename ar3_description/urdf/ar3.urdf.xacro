@@ -200,5 +200,176 @@
     <axis xyz="0 0 1"/>
     <limit lower="-2.5848326" upper="2.5848326" effort="0" velocity="0"/>
   </joint>
+    <link
+    name="gripper_base_link">
+    <inertial>
+      <origin
+        xyz="0.000201676352247788 -0.000271374020595348 0.0205764880482399"
+        rpy="0 0 0" />
+      <mass
+        value="0.0837131933946375" />
+      <inertia
+        ixx="1.27397176956936E-05"
+        ixy="-1.92472475737929E-07"
+        ixz="-2.59961702797386E-07"
+        iyy="3.03147660705332E-05"
+        iyz="-4.38487554539977E-07"
+        izz="3.76673423663697E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ar3_description/meshes/gripper_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ar3_description/meshes/gripper_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_7"
+    type="fixed">
+    <origin
+      xyz="-0.000294 0 0.0162"
+      rpy="-1.57 0 0" />
+    <parent
+      link="link_6" />
+    <child
+      link="gripper_base_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link
+    name="left_gripper">
+    <inertial>
+      <origin
+        xyz="-0.0195202213701238 0.0103863936746414 0.0109639611383669"
+        rpy="0 0 0" />
+      <mass
+        value="0.00654748908133538" />
+      <inertia
+        ixx="8.84676970462487E-07"
+        ixy="7.1930007360712E-08"
+        ixz="1.95149753842345E-08"
+        iyy="6.07697846024335E-07"
+        iyz="-1.59781110867253E-07"
+        izz="7.00611450389647E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ar3_description/meshes/left_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ar3_description/meshes/left_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftGripper"
+    type="prismatic">
+    <origin
+      xyz="0 -0.035575 -0.015225"
+      rpy="1.5708 0 0" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="left_gripper" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.018"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+
+  <link
+    name="right_Gripper">
+    <inertial>
+      <origin
+        xyz="-0.0187964103588927 0.0105172601371314 0.0110527863050884"
+        rpy="0 0 0" />
+      <mass
+        value="0.00651398591885153" />
+      <inertia
+        ixx="8.60320633970985E-07"
+        ixy="7.39519862508087E-08"
+        ixz="2.08874041010245E-08"
+        iyy="5.94973791276392E-07"
+        iyz="-1.48265837261608E-07"
+        izz="6.78016327392414E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ar3_description/meshes/right_Gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ar3_description/meshes/right_Gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rightGripper"
+    type="prismatic">
+    <origin
+      xyz="0 -0.035575 0.009925"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="right_Gripper" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.018"
+      effort="10"
+      velocity="0.1" />
+  </joint>  
 </robot>
 
